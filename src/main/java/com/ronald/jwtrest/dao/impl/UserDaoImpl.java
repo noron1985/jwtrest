@@ -14,7 +14,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User findByEmail(String email) {
-        return users.stream().filter(user -> user.getEmail().equals(email)).findFirst().orElse(null);
+        return users.stream()
+                .filter(user -> user.getEmail().equals(email)).findFirst().orElse(null);
     }
 
     @Override
