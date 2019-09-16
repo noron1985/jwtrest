@@ -30,7 +30,6 @@ public class UserDaoImpl implements UserDao {
             users.add(user);
         }
 
-
         return findByEmail(user.getEmail());
 
     }
