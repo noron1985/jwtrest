@@ -1,20 +1,22 @@
 package com.ronald.jwtrest.service;
 
+import com.ronald.jwtrest.api.dto.CreateProductCommand;
 import com.ronald.jwtrest.api.dto.ProductDto;
 import com.ronald.jwtrest.dao.ProductDao;
 import com.ronald.jwtrest.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+@Service
 public class ProductService implements Function<Product, ProductDto> {
 
-
     @Autowired
-    private
-    ProductDao productDao;
+    private ProductDao productDao;
 
 
     public ProductDto save(Product product) {
@@ -22,7 +24,10 @@ public class ProductService implements Function<Product, ProductDto> {
     }
 
     public List<ProductDto> findAll() {
-        return productDao.findAll().stream().map(this::apply).collect(Collectors.toList());
+        return productDao.findAll()
+                .stream()
+                .map(this::apply)
+                .collect(Collectors.toList());
     }
 
     public ProductDto findById(String id) {
@@ -36,6 +41,14 @@ public class ProductService implements Function<Product, ProductDto> {
         }
     }
 
+    public String handleCreateCommand(CreateProductCommand command) {
+        return save(
+                new Product(
+                        UUID.randomUUID().toString(),
+                        command.getNom(),
+                        command.getPrice()))
+                .getId();
+    }
 
     @Override
     public ProductDto apply(Product product) {

@@ -2,11 +2,13 @@ package com.ronald.jwtrest.dao.impl;
 
 import com.ronald.jwtrest.dao.ProductDao;
 import com.ronald.jwtrest.model.Product;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class ProductDaoImpl implements ProductDao {
 
     List<Product> products = new ArrayList<>();
