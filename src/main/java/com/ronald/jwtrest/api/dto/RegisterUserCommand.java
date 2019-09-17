@@ -11,11 +11,8 @@ public class RegisterUserCommand {
     private String fullname;
     private Set<Role> roles;
 
-    public RegisterUserCommand(String email, String password, String fullname, Set<Role> roles) {
-        this.email = email;
-        this.password = password;
-        this.fullname = fullname;
-        this.roles = roles;
+
+    protected RegisterUserCommand() {
     }
 
     public String getEmail() {

@@ -55,6 +55,10 @@ public class User {
         this.enabled = enabled;
     }
 
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

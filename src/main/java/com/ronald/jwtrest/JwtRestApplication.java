@@ -8,6 +8,7 @@ public class JwtRestApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(JwtRestApplication.class, args);
+        System.out.println("API running...");
 	}
 
 }

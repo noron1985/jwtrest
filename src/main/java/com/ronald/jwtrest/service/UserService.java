@@ -34,7 +34,9 @@ public class UserService implements UserDetailsService {
 
     public User createUser(RegisterUserCommand command) {
         User user = new User();
-        user.setPassword(bCryptPwdEncoder.encode(command.getPassword())); // encode password
+        user.setEmail(command.getEmail());
+        user.setFullname(command.getFullname());
+        user.setPassword(bCryptPwdEncoder.encode(command.getPassword())); // encode password with salt
         user.setEnabled(true);
         user.setRoles(new HashSet<>(command.getRoles()));
         return userDao.save(user);
