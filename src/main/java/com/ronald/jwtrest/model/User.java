@@ -11,13 +11,13 @@ public class User {
     private Set<Role> roles;
 
 
-    public User(String email, String password, String fullname, boolean enabled, Set<Role> roles) {
-        this.email = email;
-        this.password = password;
-        this.fullname = fullname;
-        this.enabled = enabled;
-        this.roles = roles;
-    }
+//    public User(String email, String password, String fullname, boolean enabled, Set<Role> roles) {
+//        this.email = email;
+//        this.password = password;
+//        this.fullname = fullname;
+//        this.enabled = enabled;
+//        this.roles = roles;
+//    }
 
     public String getEmail() {
         return email;
@@ -49,6 +49,10 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     @Override

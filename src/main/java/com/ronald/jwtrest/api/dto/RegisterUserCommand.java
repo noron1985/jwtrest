@@ -4,19 +4,17 @@ import com.ronald.jwtrest.model.Role;
 
 import java.util.Set;
 
-public class UserDto {
+public class RegisterUserCommand {
 
     private String email;
     private String password;
     private String fullname;
-    private boolean enabled;
     private Set<Role> roles;
 
-    public UserDto(String email, String password, String fullname, boolean enabled, Set<Role> roles) {
+    public RegisterUserCommand(String email, String password, String fullname, Set<Role> roles) {
         this.email = email;
         this.password = password;
         this.fullname = fullname;
-        this.enabled = enabled;
         this.roles = roles;
     }
 
@@ -32,9 +30,6 @@ public class UserDto {
         return fullname;
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
 
     public Set<Role> getRoles() {
         return roles;

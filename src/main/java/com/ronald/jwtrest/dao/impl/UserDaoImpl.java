@@ -2,11 +2,13 @@ package com.ronald.jwtrest.dao.impl;
 
 import com.ronald.jwtrest.dao.UserDao;
 import com.ronald.jwtrest.model.User;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class UserDaoImpl implements UserDao {
 
 
@@ -24,8 +26,7 @@ public class UserDaoImpl implements UserDao {
 
         if (findByEmail(user.getEmail()) == null){
             users.add(user);
-        }
-        else {
+        } else {
             users.remove(user);
             users.add(user);
         }
